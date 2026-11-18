@@ -1,0 +1,43 @@
+port: 8088
+functions:
+  - name: STFC_CONNECTION
+    parameters:
+      - name: REQUTEXT
+        direction: import
+        type: CHAR
+        length: 255
+      - name: ECHOTEXT
+        direction: export
+        type: CHAR
+        length: 255
+        from: REQUTEXT
+      - name: RESPTEXT
+        direction: export
+        type: CHAR
+        length: 255
+        value: "Hello from RFC mock Lawang-Core"
+  - name: Z_LAWANG_TEST
+    parameters:
+      - name: IV_NAME
+        direction: import
+        type: STRING
+      - name: EV_NAME
+        direction: export
+        type: STRING
+        from: IV_NAME
+      - name: EV_STATUS
+        direction: export
+        type: STRING
+        value: SUCCESS
+      - name: EV_COUNT
+        direction: export
+        type: INT
+        value: 3
+      - name: EV_RATIO
+        direction: export
+        type: FLOAT
+        value: 1.25
+      - name: CV_COUNTER
+        direction: changing
+        type: INT
+        from: CV_COUNTER
